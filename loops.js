@@ -154,58 +154,173 @@ let words = ["Победи", "себя", "и", "выиграешь", "тысяч
   print("**\n");
 
 }*/
+const analitics = {
+  ChangeAnalitics: function(nApples){
+    let auxiliaryArray = nApples.map(function(transaction){ if(transaction > 0){ return "Доход"; } else if(transaction < 0){ return "Расход"; } });
+    return auxiliaryArray;
+  },
+  SumArray: function(array){
+    let reducer = (accumulator, currentValue) => accumulator + currentValue;
+    return array.reduce(reducer,0);
+  },
+  WordEnding: function(quantity,form1,form2,form3){
+    if(quantity<0){ quantity*=-1; }  
+    if(quantity>=100){    
+      quantity %= 100;   
+    }
+    if(quantity >= 10 && quantity <=20){ return form3; }
+    quantity %= 10; 
+    if(quantity===1){ return form1; }
+    else if(quantity > 1 && quantity < 5){ return form2; }
+    else if((quantity >= 5 && quantity <= 9) || quantity === 0){ return form3; }
+  }
+}
 
+const log = { 
+  Balance: function(appleNumber) { 
+    console.log("Ура мы накопили "+analitics.SumArray(appleNumber)+ " "+ analitics.WordEnding(analitics.SumArray(appleNumber),"яблоко","яблока","яблок"));
+  }, 
+  AllPositive: function(appleNumber){
+    if(appleNumber.every(apple => apple > 0)){
+    console.log("Все транзакции были положительные!");
+    }
+  },
+  ZeroExist: function(appleNumber){
+    if(appleNumber.some(apple => apple === 0)){
+    console.log("Есть транзакции с нулевым значением!");
+    }
+  },
+  IncomeSum: function(appleNumberP){
+    console.log("Сумма доходов составила: "+analitics.SumArray(appleNumberP));
+  },
+  ConsumptionSum: function(appleNumberN){
+    console.log("Сумма расходов составила: "+(analitics.SumArray(appleNumberN)*(-1)));
+  },
+  IncomeAvg: function(appleNumberP){
+    console.log("Средний доход за 1 транзакцию: "+(analitics.SumArray(appleNumberP)/12));
+  },
+  ConsumptionAvg: function(appleNumberN){
+    console.log("Средний расход за 1 транзакцию: "+((analitics.SumArray(appleNumberN)*(-1))/12));
+  },
+  DisplayNumber: function(quantity){
+    console.log("В ящике " +quantity+ " "+ analitics.WordEnding(quantity,"яблоко","яблока","яблок"));
+  },
+  Border: function(){
+    console.log("**********************************************");
+  },
+  DisplayStatus: function(quantity){
+    if(quantity < 0){
+      console.log("Кредитный ящик!");
+    }
+    else if(quantity > 0){
+      console.log("Полный!");
+    }
+    else if(quantity === 0){
+      console.log("Пустой!");
+    }
+  },
+  DisplayChanges: function(auxiliary){
+    if(auxiliary < 0){ console.log("Мы потеряли "+ (auxiliary*(-1)) +" " + analitics.WordEnding(auxiliary,"яблоко","яблока","яблок")); /*nSum+=(auxiliary*(-1));*/ }
+    else if(auxiliary > 0) { console.log("Мы получили "+ auxiliary +" " + analitics.WordEnding(auxiliary,"яблоко","яблока","яблок")); /*pSum+=auxiliary;*/ }
+    else{ console.log("Кол-во яблок не изменилось!"); }
+  }
+}
 
-
-let nApples = 0;
+let nApples = [];
 let min = -600;
 let max = 600;
-let auxiliary,nSum=0,pSum=0;
+let auxiliary;
 for(let i=0;i<10;i++){
 auxiliary = min + Math.floor(Math.random() * (max - min));
-nApples += auxiliary;
-border();
-displayStatus(nApples);
-if(auxiliary < 0){ console.log("Мы потеряли "+ (auxiliary*(-1)) +" " + wordEnding(auxiliary,"яблоко","яблока","яблок")); nSum+=(auxiliary*(-1)); }
-else if(auxiliary > 0) { console.log("Мы получили "+ auxiliary +" " + wordEnding(auxiliary,"яблоко","яблока","яблок")); pSum+=auxiliary; }
-else{ console.log("Кол-во яблок не изменилось!"); }
-displayNumber(nApples);
-border();
+nApples[i]= auxiliary;
+log.Border();
+log.DisplayStatus(nApples);
+log.DisplayChanges(auxiliary);
+log.DisplayNumber(analitics.SumArray(nApples));
+log.Border();
 console.log("\n\n");
 }
-console.log("Ура мы накопили "+nApples+ " "+ wordEnding(nApples,"яблоко","яблока","яблок"));
-console.log("Сумма доходов составила: "+pSum);
-console.log("Сумма расходов составила: "+nSum);
-console.log("Средний доход за 1 транзакцию: "+(pSum/12));
-console.log("Средний расход за 1 транзакцию: "+(nSum/12));
-function border(){
-  console.log("**********************************************");
-}
-function displayStatus(quantity){
-  if(quantity < 0){
-    console.log("Кредитный ящик!");
+let nApplesN = nApples.filter(apple => apple < 0); 
+let nApplesP = nApples.filter(apple => apple > 0);
+let aTransaction = analitics.ChangeAnalitics(nApples);
+log.Balance(nApples);
+log.AllPositive(nApples); 
+log.ZeroExist(nApples); 
+log.IncomeSum(nApplesP);
+log.ConsumptionSum(nApplesN);
+log.IncomeAvg(nApplesP);
+log.ConsumptionAvg(nApplesN);
+
+
+
+// дз 9 пункт 3
+function displayOperationArray1(array,object1){ //чет незнаю как делать
+  
+  
+    console.log(Object.entries(object1).forEach(([key, value]) => console.log(`${key}: ${array.map()}`)));
+  
   }
-  else if(quantity > 0){
-    console.log("Полный!");
-  }
-  else if(quantity === 0){
-    console.log("Пустой!");
-  }
+displayOperationArray1(nApples,log);
+
+
+
+/*function displayOperationArray(array,object1){
+for (const [key, value] of Object.entries(object1)) {
+
+  console.log(`${key}: ${array.map(elem=>object1.key(elem))}`);
 }
-function displayNumber(quantity){
-  console.log("В ящике " +quantity+ " "+ wordEnding(quantity,"яблоко","яблока","яблок"));
-}
-function wordEnding(quantity,form1,form2,form3){
-  if(quantity<0){ quantity*=-1; }  
-  if(quantity>=100){    
-    quantity %= 100;   
+}*/
+//displayOperationArray(nApples,log);
+
+
+
+
+
+
+function joinElem(array,between=""){ // дз 8
+  let auxiliary1="";
+  for(let i=0;i<array.length;i++){
+    auxiliary1+=(array[i]);
+    if(i!=array.length - 1){
+      auxiliary1+=(between);
+    }
   }
-  if(quantity >= 10 && quantity <=20){ return form3; }
-  quantity %= 10; 
-  if(quantity===1){ return form1; }
-  else if(quantity > 1 && quantity < 5){ return form2; }
-  else if((quantity >= 5 && quantity <= 9) || quantity === 0){ return form3; }
+  return auxiliary1;
 }
+let arr = [1,2,3];
+console.log(joinElem(arr,"&&"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
