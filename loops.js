@@ -254,13 +254,12 @@ log.ConsumptionAvg(nApplesN);
 
 
 // дз 9 пункт 3
-function displayOperationArray1(array,object1){ //чет незнаю как делать
-  
-  
-    console.log(Object.entries(object1).forEach(([key, value]) => console.log(`${key}: ${array.map()}`)));
-  
-  }
-displayOperationArray1(nApples,log);
+const multiMap = operations => array => 
+  Object.entries(operations)
+    .forEach(([name, operation]) => {
+      const result = array.map(operation);
+      console.log(name, result);
+    });
 
 
 
