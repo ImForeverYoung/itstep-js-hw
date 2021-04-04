@@ -271,7 +271,9 @@ for (const [key, value] of Object.entries(object1)) {
 }*/
 //displayOperationArray(nApples,log);
 
-
+window.addEventListener("load", function(){
+  
+})
 
 
 
