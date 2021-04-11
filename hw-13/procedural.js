@@ -22,7 +22,7 @@ let invalidForm = {
 
 const handleSubmit = (form) => {
   // const username = form.username;
-  // ..
+  // .
   const { username, password, age } = form;
 
   let isValid = true;
