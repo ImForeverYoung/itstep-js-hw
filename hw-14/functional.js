@@ -63,6 +63,7 @@ const validateHeight=(height)=>{
     return [false, "Рост должен быть в промежутке от 0 до 300 см"];
   }
   return [true, null];
+  
 }
 const createUser = ({
   username,
