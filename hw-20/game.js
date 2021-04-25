@@ -18,6 +18,7 @@ const generateTimersList = (n, m) => createArray(() => null) (n * m);
 
 const N = 3;
 const M = 2;
+ 
 
 const width = 165;
 const height =290;
