@@ -148,6 +148,7 @@ body{
   backface-visibility: hidden;
   transition: transform .5s, opacity .5s;
 }
+ 
 
 .card__front {
   background-color: white;
