@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Document</title>
+  <script src="mai1n.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+    }
+
+   
+
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+    canvas.width= window.innerWidth;
+    canvas.height= window.innerHeight;
+    ctx.strokeStyle = "black";
+    let centerX = canvas.width/2, centerY = canvas.height/2;
+    ctx.arc(centerX, centerY, 300, 0,2*Math.PI,);
+    ctx.stroke();
+    ctx.fillStyle="black";
+    const r = 300;
+    const shift = 20;
+    const auxiliary = Math.PI/180;
+    let m=1;//multiplier
+    let angle=0;
+    function transformation(context,x,y,angle){
+      context.restore();
+      context.save();
+      context.translate(x, y);
+      context.rotate(auxiliary * angle);
+    }
+      /*ctx.translate(centerX, centerY - 300);
+      ctx.rotate(Math.PI/180 * angle);*/
+      ctx.save();
+      ctx.translate(centerX, centerY - r);
+      ctx.rotate(auxiliary * 0);
+      
+      ctx.beginPath();
+      ctx.moveTo(0, 0 - shift);
+      ctx.lineTo(0-shift, 0 + shift);
+      ctx.lineTo(0+shift, 0 + shift);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.fill();
+      /*
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY - r - shift);
+      ctx.lineTo(centerX-shift, centerY - r + shift);
+      ctx.lineTo(centerX+shift, centerY - r + shift);
+      ctx.closePath();
+      ctx.stroke();
+      */
+      m+=0.3;
+      ctx.restore();
+      ctx.save();
+      ctx.translate(centerX+(r*0.5), centerY - (r*Math.sqrt(3)*0.5));
+      ctx.rotate(auxiliary * 120);
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+        
+      
+        m+=0.3;
+        ctx.restore();
+        ctx.save();
+      ctx.translate(centerX+(r*Math.sqrt(3)*0.5), centerY - (r*0.5));
+      ctx.rotate(auxiliary * 240);
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        m+=0.3;
+        ctx.restore();
+        ctx.save();
+      ctx.translate(centerX+(r), centerY);
+      ctx.rotate(auxiliary * 0);
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        m+=0.3;
+        transformation(ctx,centerX+(r*Math.sqrt(3)*0.5),centerY +(r*0.5),120)
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        m+=0.3;
+        transformation(ctx,centerX+(r*0.5),centerY + (r*Math.sqrt(3)*0.5),240)
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        m=1;
+        transformation(ctx,centerX,centerY + (r),0)
+        ctx.beginPath();
+      ctx.moveTo(0, 0 - shift);
+      ctx.lineTo(0-shift, 0 + shift);
+      ctx.lineTo(0+shift, 0 + shift);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.fill();
+        
+      m+=0.3;
+      transformation(ctx,centerX-(r*0.5),centerY + (r*Math.sqrt(3)*0.5),120)
+      ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        m+=0.3;
+        transformation(ctx,centerX-(r*Math.sqrt(3)*0.5),centerY +(r*0.5),240)
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        m+=0.3;
+        transformation(ctx,centerX-(r),centerY,0)
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        m+=0.3;
+        transformation(ctx,centerX-(r*Math.sqrt(3)*0.5),centerY- (r*0.5),120)
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+        m+=0.3;
+        transformation(ctx,centerX-(r*0.5),centerY- (r*Math.sqrt(3)*0.5),240)
+        ctx.beginPath();
+        ctx.moveTo(0, 0 - shift*m);
+        ctx.lineTo(0-shift*m, 0 + shift*m);
+        ctx.lineTo(0+shift*m, 0 + shift*m);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+      /*ctx.restore();*/
+    
+    
+  </script>
+</body>
+</html>
