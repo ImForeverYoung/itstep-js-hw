@@ -162,7 +162,8 @@ window.addEventListener("load", () => {
   box.changeAmount(auxiliary); // накапливание в объекте класса
   log.Border(); // элемент дизайна
   
-    
+     
+  
   
   
   log.DisplayStatus(nApples); // логирование статуса ящика с яблоками
