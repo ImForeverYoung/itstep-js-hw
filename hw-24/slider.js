@@ -128,7 +128,8 @@ class Slider {
     }, film);
     return new Slider(container, film, slides, buttons);
   }
-
+ 
+  
   // fromHtml(element) {
 
   // }
