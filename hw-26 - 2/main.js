@@ -30,6 +30,7 @@ sliderContainer.addEventListener('wheel', (e) => {
   e.deltaY==100? slider.moveSlide(-1) : slider.moveSlide(1);
 
 });
+
   // slider2.appendTo(document.body.querySelector(".slider"));
 
   /*document.querySelector(".button_left").addEventListener("click", () => {
