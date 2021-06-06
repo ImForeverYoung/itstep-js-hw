@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  width: 600px;
+  height: 500px;
+  border: 1px solid red;
+
+  overflow-y: scroll;
+}
+
+.list__item {
+  margin: 20px;
+  height: 80px;
+  background-color: rosybrown;
+}
+
+.button {
+  padding: 20px;
+  margin: 20px;
+  background-color: rosybrown;
+}
