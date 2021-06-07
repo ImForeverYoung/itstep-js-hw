@@ -69,6 +69,7 @@ window.addEventListener("load", () => {
   document.body.append(input, answer, steps);
 });
 
+
 const handleInput = (answer, steps) => (e) => {
   const input = e.target.value;
 
