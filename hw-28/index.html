@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="style.css"></link>
+
+  <script src="lists.js"></script>
+  <script src="dom.js"></script>
+
+  <script src="ui.js"></script>
+  <script src="game.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+  <div class="game">
+    <div class="game-state-placeholder"></div>
+    <div class="game__container" id="game"></div>
+  </div>
+
+  <div class="home" id="home">
+    <div class="game-state-placeholder"></div>
+
+    
+    <div class="home__settings settings">
+      
+      <div class="button-start" id="button-start">START</div>
+      <div class="cardSelectorPanel cardSelectorPanel_hidden" id="cardSelectorPanel">
+        <div class="panelPart" id="panelPart">
+
+        </div>
+        <div class="cardSelector" id="cardSelector">
+          GO
+        </div>
+      </div>
+      <div style="padding-left: 25px; padding-top: 25px;" class="results-block">
+        <ul id="results"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-state game-state_hidden" id="game-state">
+    <div class="game-timer" id="game-timer"></div>
+  </div>
+
+  <div class="button-pause button-pause_hidden" id="button-pause"></div>
+
+</body>
+</html>
