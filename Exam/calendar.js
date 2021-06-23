@@ -27,6 +27,7 @@ class Calendar{
             this.inputItem.focus();
         })*/
     }
+    
     selectCreate(){
         const selecter = $("select",{className: "calendar__select",/*mousedown:(e)=>{
             console.log("gg")
