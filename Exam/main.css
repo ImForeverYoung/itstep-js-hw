@@ -1,0 +1,159 @@
+
+.field{
+    display: block;
+    padding: 20px;
+}
+
+form{
+    display: flex;
+    
+}
+.errors{
+    color: red;
+}
+.city_ul{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.city_li{
+    display: flex;
+    justify-content: space-between;
+}
+
+.result{
+    display: flex;
+    
+}
+.tickets{
+    flex: 1 1;
+    border: 1px solid black;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.ticketData{
+    border-left: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ЧАСТЬ CSS СВОЙСТ ДЛЯ БИБЛИОТЕКИ КАЛЕНДАРЯ */
+.calendarContainer{
+    border: 1px solid black;
+    user-select: none;
+    display: flex;
+    width: 600px;
+}
+.calendar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    /*user-select: none;*/
+    /* position: absolute; */
+}
+.calendar__weekdays{
+    display: flex;
+    
+}
+.calendar__weekdays__day{
+    flex: 1 1;
+    width: 30px;
+    height: 20px;
+    border: 1px solid black;
+}
+.textarea_center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.calendar__weeks__row{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: stretch; */
+}
+.calendar__weeks__day{
+    flex: 1 1;
+    width: 30px;
+    height: 20px;
+    border: 1px solid black;
+}
+.calendar__weeks-body{
+    display: flex;
+    flex-direction: column;
+}
+.notactive{
+    color: grey;
+}
+.hidden{
+    display: none;
+}

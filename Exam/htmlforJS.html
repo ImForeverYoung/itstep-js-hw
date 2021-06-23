@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>Билеты</title>
+  <script src="indexed-db-store.js"></script>
+  
+  <script src="flight.js"></script>
+  <script src="main.js"></script>
+  <script src="validation.js"></script>
+  <script src="calendar.js"></script>
+  <script src="dates.js"></script>
+  
+  <script src="lists.js"></script>
+  <script src="dom.js"></script>
+  
+  <link href="main.css" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+   
+
+  </style>
+</head>
+
+<body>
+  <!-- <form name="test" novalidate  autocomplete="off">
+    <input type="text" name="name" data-label="Имя"/>
+    <input type="text" name="dateOfBirth" data-label="Дата рождения"/>
+    <input name="height" data-label="Рост"/>
+    <textarea name="about" data-label="О себе"></textarea>
+    <select name="favorite" data-label="Любимая опция">
+      <option value="">---</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+    </select>
+    //<input type="text" name="name"/> 
+    <input type="file" name="resume" data-label="Резюме"/> 
+    <input type="checkbox" name="iAgree" data-label="Согласен с условиями"/> 
+    <button type="submit">Отправить</button>
+
+    <input name="books[0].title">
+    <input name="books[1].title">
+  </form> -->
+
+  <div>
+    <div style="display: flex;">
+  <form action="/search" novalidate autocomplete="off" name="form" >
+    <input type="text" placeholder="Откуда" class="input" name="from" data-opened="false" >
+    <input type="text" placeholder="Куда" class="input" name="where" data-opened="false">
+    <input type="text"  placeholder="Когда" class="input" id="when" name="when" data-opened="false">
+    <input type="text" readonly placeholder="Обратно" class="input" id="back" name="back" data-opened="0">
+    
+  </form>
+  <button id="submit">НАЙТИ</button>
+</div>
+  <div class="calendarContainer" style="display: none;">
+  <div class="calendar artificialPH"  data-mouse="false"></div> 
+  <div class="calendar artificialPH"  data-mouse="false"></div>
+  </div>
+  </div>
+  <div style="display: flex; flex-direction: column;">
+  <div class="result">
+    <div id="resultThere" class="tickets"></div>
+    <div id="resultBack" class="tickets"></div>
+  </div>
+  <button id="buy" style="display: none;">BUY</button>
+  </div>
+</body>
+</html>
